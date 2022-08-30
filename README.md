@@ -1,6 +1,6 @@
 # weather
 
-A new Flutter project.
+flutter versioon: 2.10.3
 
 ## Getting Started
 
