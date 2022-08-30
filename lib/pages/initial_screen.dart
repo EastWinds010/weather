@@ -18,7 +18,7 @@ class _InitialScreenState extends State<InitialScreen> {
   }
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     controllerScreen.requestCordinates();
     controllerScreen.func = updatedState;
@@ -66,15 +66,51 @@ class _InitialScreenState extends State<InitialScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: size.width * 0.07),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(controllerScreen.cityName!,
-                          style: TextStyle(
-                              fontSize: size.width * .09, color: Colors.white),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: size.width * 0.07),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              controllerScreen.cityName!,
+                              style: TextStyle(
+                                  fontSize: size.width * .09,
+                                  color: Colors.white),
+                            ),
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: EdgeInsets.only(left: size.width*0.6),
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  const DateText(label: "Min"),
+                                  DateText(label: "${controllerScreen.temperatureMax!}º")
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: size.width*0.03, left: size.width*0.03),
+                                child: Container(
+                                  width: size.width*0.005,
+                                  height: size.width*0.14,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.white
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                children: [
+                                  const DateText(label: "Min"),
+                                  DateText(
+                                      label: "${controllerScreen.temperatureMin!}º")
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                     Container(
                       height: size.width * 1,
@@ -85,7 +121,7 @@ class _InitialScreenState extends State<InitialScreen> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(top: size.width*0.015),
+                            padding: EdgeInsets.only(top: size.width * 0.015),
                             child: const DateText(label: "Agosto"),
                           ),
                           Padding(
@@ -100,11 +136,15 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path: controllerScreen.arrayCondition[0]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[0]),
                                     ),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[0].toString()}º"),
@@ -118,11 +158,15 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path:controllerScreen.arrayCondition[1]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[1]),
                                     ),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[1].toString()}°"),
@@ -136,11 +180,15 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path: controllerScreen.arrayCondition[2]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[2]),
                                     ),
                                     Padding(
-                                       padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[2].toString()}°"),
@@ -154,11 +202,15 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path: controllerScreen.arrayCondition[3]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[3]),
                                     ),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[3].toString()}°"),
@@ -172,11 +224,15 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path: controllerScreen.arrayCondition[4]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[4]),
                                     ),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[4].toString()}º"),
@@ -190,17 +246,79 @@ class _InitialScreenState extends State<InitialScreen> {
                                             .toString()
                                             .substring(0, 2)),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
-                                      child: IconCustom(path: controllerScreen.arrayCondition[5]),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
+                                      child: IconCustom(
+                                          path: controllerScreen
+                                              .arrayCondition[5]),
                                     ),
                                     Padding(
-                                      padding:EdgeInsets.only(top: size.width*0.02),
+                                      padding: EdgeInsets.only(
+                                          top: size.width * 0.02),
                                       child: DateText(
                                           label:
                                               "${controllerScreen.arrayTemperatureMax[5].toString()}º"),
                                     )
                                   ],
                                 ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(top: size.width * 0.03),
+                            child: Container(
+                              height: size.width * 0.005,
+                              width: size.width * 0.9,
+                              decoration:
+                                  const BoxDecoration(color: Colors.white),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: size.width * 0.08,
+                                right: size.width * 0.1,
+                                left: size.width * 0.1),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  children: [
+                                    const IconCustom(
+                                        path: "assets/icons/windy.png"),
+                                    DateText(
+                                        label: controllerScreen.windSpeed!),
+                                    const IconCustom(
+                                        path: "assets/icons/humidity.png"),
+                                    DateText(
+                                        label: "${controllerScreen.humidity!}%")
+                                  ],
+                                ),
+                                Container(
+                                  height: size.width * 0.38,
+                                  width: size.width * .005,
+                                  decoration:
+                                      const BoxDecoration(color: Colors.white),
+                                ),
+                                Column(
+                                  children: [
+                                    const IconCustom(
+                                        path: "assets/icons/earth.png"),
+                                    DateText(label: controllerScreen.latitude!),
+                                    DateText(
+                                        label: controllerScreen.longitude!),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const IconCustom(
+                                            path: "assets/icons/moutain.png"),
+                                        DateText(
+                                            label:
+                                                "${controllerScreen.altitude!} M"),
+                                      ],
+                                    )
+                                  ],
+                                )
                               ],
                             ),
                           )

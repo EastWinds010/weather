@@ -1,11 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
-// import 'package:weather/controller/controller_wallpaper.dart';
 import 'package:weather/service/info_location.dart';
 
 class ControllerScreen {
   ServiceInfoLocation serviceInfoLocation = ServiceInfoLocation();
-  // ControllerWallpaper controllerWallpaper = ControllerWallpaper();
   VoidCallback? func;
   String? latitude;
   String? longitude;
@@ -17,12 +15,13 @@ class ControllerScreen {
   String? altitude;
   String? date;
   List arrayDate = [];
-  int? temperatureMax;
+  String? temperatureMax;
+  String? temperatureMin;
   List arrayTemperatureMax = [];
   String? condition;
   List arrayCondition = [];
   String? windSpeed;
-  int? humidity;
+  String? humidity;
   String? conditionSlug;
 
   //
@@ -51,12 +50,8 @@ class ControllerScreen {
       await Geolocator.getCurrentPosition().then((value) {
         latitude = value.latitude.toStringAsFixed(5);
         longitude = value.longitude.toStringAsFixed(5);
-        altitude = value.altitude.toString();
+        altitude = value.altitude.toStringAsFixed(0);
         cordinates = "&lat=$latitude&long=$longitude&user_ip=remote";
-        if (kDebugMode) {
-          print("Latitude: $latitude | Longitude: $longitude");
-          print("Altitude: $altitude");
-        }
       });
       await infoTemperature();
       await refactorValues(codeConditionCurrent!);
@@ -75,11 +70,12 @@ class ControllerScreen {
       currently = infoTeperature['results']['currently'];
       cityName = infoTeperature['results']['city_name'];
       windSpeed = infoTeperature['results']['wind_speedy'];
-      humidity = infoTeperature['results']['humidity'];
+      humidity = infoTeperature['results']['humidity'].toString();
       codeConditionCurrent =
           int.parse(infoTeperature['results']['condition_code']);
       conditionSlug = infoTeperature['results']['condition_slug'];
-
+      temperatureMax = infoTeperature['results']['forecast'][0]['max'].toString();
+      temperatureMin = infoTeperature['results']['forecast'][0]['min'].toString();
       for (var i = 0; i < 6; i++) {
         arrayTemperatureMax
             .add(infoTeperature['results']['forecast'][i]['max']);
@@ -203,10 +199,10 @@ class ControllerScreen {
         largerIcon = "assets/icons/clear_night.png";
         break;
       case "cloudly_day":
-        largerIcon = "assets/icons/cloud_day.png";
+        largerIcon = "assets/icons/cloudly_day.png";
         break;
       case "cloudly_night":
-        largerIcon = "assets/icons/cloud_night.png";
+        largerIcon = "assets/icons/cloudly_night.png";
         break;
       case "fog":
         largerIcon = "assets/icons/fog.png";
@@ -236,17 +232,15 @@ class ControllerScreen {
         arrayCondition[i] = "assets/icons/clear_icon_small.png";
       } else if (arrayCondition[i] == "cloud") {
         arrayCondition[i] = "assets/icons/cloud_icon_small.png";
-      } else if (arrayCondition[i] == "cloud_day") {
+      } else if (arrayCondition[i] == "cloudly_day") {
         arrayCondition[i] = "assets/icons/cloud_icon_small.png";
-      } else if (arrayCondition[i] == "cloud_night") {
+      } else if (arrayCondition[i] == "cloudly_night") {
         arrayCondition[i] = "assets/icons/cloud_icon_small.png";
       } else if (arrayCondition[i] == "none_day") {
         arrayCondition[i] = "assets/icons/storm_icon_small.png";
       } else if (arrayCondition[i] == "none_night") {
         arrayCondition[i] = "assets/icons/storm_icon_small.png";
-      }else{
-      }
+      } else {}
     }
-
   }
 }
