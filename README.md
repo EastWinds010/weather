@@ -1,16 +1,22 @@
-# weather
+# Welcome to WheatherApp!
+## Flutter Version 2.10.3
 
-flutter versioon: 2.10.3
+Hi! the project **WheatherApp** was developed as a study and reference material for using APIs. The project fixed topics studied and provided me with great learning.
 
-## Getting Started
+# Development Structure
 
-This project is a starting point for a Flutter application.
+The project followed a few steps:
+• Prototyping using Figma
+• HG Wheather API Documentation study
+• Code development
+• Testing
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+# HG Wheather API
+The HG Wheather API is an api that returns data on current weather conditions in a city. in **WheaterAPP** the city location is obtained through geolocation.
+All API documentation can be consulted via the link:
+Api documentation: https://console.hgbrasil.com/documentation/weather
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Prints
+![enter image description here](https://raw.githubusercontent.com/EastWinds010/weather/main/prints/DIA.png)
+
