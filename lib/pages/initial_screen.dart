@@ -86,7 +86,7 @@ class _InitialScreenState extends State<InitialScreen> {
                             children: [
                               Column(
                                 children: [
-                                  const DateText(label: "Min"),
+                                  const DateText(label: "Max"),
                                   DateText(label: "${controllerScreen.temperatureMax!}º")
                                 ],
                               ),

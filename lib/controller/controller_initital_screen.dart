@@ -23,8 +23,6 @@ class ControllerScreen {
   String? windSpeed;
   String? humidity;
   String? conditionSlug;
-
-  //
   String wallpaper = "assets/wallpaper/11.png";
   String largerIcon = "";
   String smallIcon = "";
@@ -40,7 +38,6 @@ class ControllerScreen {
   List<int> newId9 = [20, 22];
   List<int> newId10 = [23, 24];
   List<int> newId11 = [48];
-  //
 
   Future<void> requestCordinates() async {
     Geolocator.requestPermission();
@@ -74,8 +71,10 @@ class ControllerScreen {
       codeConditionCurrent =
           int.parse(infoTeperature['results']['condition_code']);
       conditionSlug = infoTeperature['results']['condition_slug'];
-      temperatureMax = infoTeperature['results']['forecast'][0]['max'].toString();
-      temperatureMin = infoTeperature['results']['forecast'][0]['min'].toString();
+      temperatureMax =
+          infoTeperature['results']['forecast'][0]['max'].toString();
+      temperatureMin =
+          infoTeperature['results']['forecast'][0]['min'].toString();
       for (var i = 0; i < 6; i++) {
         arrayTemperatureMax
             .add(infoTeperature['results']['forecast'][i]['max']);
